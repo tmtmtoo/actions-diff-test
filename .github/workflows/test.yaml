@@ -8,14 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: technote-space/get-diff-action@v5
-        id: space_a_diff
+        id: space_a
         with:
           PATTERNS: |
             space_a/**/*
-      - name: foo
-        if: steps.space_a_diff.outputs.diff
+
+      - name: 差分があった場合に実行する step
+        if: steps.space_a.outputs.diff
         run: echo '${{ steps.space_a_diff.outputs.diff }}'
-      - name: bar
-        if: ${{ steps.space_a_diff.outputs.diff == false }}
+
+      - name: 差分がなかった場合に実行する step
+        if: ${{ steps.space_a.outputs.diff == false }}
         run: echo space_aに差分なし
