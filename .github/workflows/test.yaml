@@ -17,5 +17,5 @@ jobs:
         if: steps.space_a_diff.outputs.diff
         run: echo '${{ steps.space_a_diff.outputs.diff }}'
       - name: bar
-        if: !steps.space_a_diff.outputs.diff
+        if: ${{ steps.space_a_diff.outputs.diff == false }}
         run: echo space_aに差分なし
