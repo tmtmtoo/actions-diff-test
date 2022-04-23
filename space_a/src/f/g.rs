@@ -1,1 +1,3 @@
-pub fn g() {}
+pub fn g() {
+    println!("yay")
+}
