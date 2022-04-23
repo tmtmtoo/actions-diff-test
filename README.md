@@ -28,11 +28,11 @@ jobs:
           PATTERNS: |
             space_a/**/*
 
-      - name: 差分があった場合に実行する step
+      - name: space_a に差分があった場合に実行する step
         if: steps.space_a_diff.outputs.diff
         run: echo '${{ steps.space_a_diff.outputs.diff }}'
 
-      - name: 差分がなかった場合に実行する step
+      - name: space_a に差分がなかった場合に実行する step
         if: ${{ steps.space_a_diff.outputs.diff == false }}
         run: echo space_aに差分なし
 ```
