@@ -17,7 +17,7 @@ jobs:
 
       - name: 差分があった場合に実行する step
         if: steps.space_a.outputs.diff
-        run: echo '${{ steps.space_a_diff.outputs.diff }}'
+        run: echo '${{ steps.space_a.outputs.diff }}'
 
       - name: 差分がなかった場合に実行する step
         if: ${{ steps.space_a.outputs.diff == false }}
