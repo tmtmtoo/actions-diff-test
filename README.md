@@ -1,3 +1,1 @@
 # actions-diff-test
-
-yay!

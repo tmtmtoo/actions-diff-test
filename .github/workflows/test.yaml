@@ -8,12 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - uses: actions-rs/cargo@v1
-        with:
-          command: test
       - uses: technote-space/get-diff-action@v5
         id: space_a_diff
         with:
@@ -21,4 +15,4 @@ jobs:
             space_a/**/*
       - name: foo
         if: steps.space_a_diff.outputs.diff
-        run: echo difffff!!!!!!!!
+        run: echo '${{ steps.space_a_diff.outputs.diff }}'
