@@ -8,7 +8,8 @@ cargo workspace 環境下で特定の workspace 内に変更差分がある時�
 
 ## workflow
 
-差分検出対象は `space_a` 配下の全ファイル
+- 差分検出対象は `space_a` 配下の全ファイル
+- 差分検出は [technote-space/get-diff-action](https://github.com/technote-space/get-diff-action) を使用
 
 ```yaml
 on:
@@ -23,16 +24,20 @@ jobs:
       - uses: actions/checkout@v3
 
       - uses: technote-space/get-diff-action@v5
-        id: space_a_diff
+        id: space_a
         with:
           PATTERNS: |
             space_a/**/*
 
-      - name: space_a に差分があった場合に実行する step
-        if: steps.space_a_diff.outputs.diff
-        run: echo '${{ steps.space_a_diff.outputs.diff }}'
+      - name: 差分があった場合に実行する step
+        if: steps.space_a.outputs.diff
+        run: echo '${{ steps.space_a.outputs.diff }}'
 
-      - name: space_a に差分がなかった場合に実行する step
-        if: ${{ steps.space_a_diff.outputs.diff == false }}
+      - name: 差分がなかった場合に実行する step
+        if: ${{ steps.space_a.outputs.diff == false }}
         run: echo space_aに差分なし
 ```
+
+## Memo
+
+- 期待通り `space_a` 配下のファイルを変更した場合のみ任意の step を踏めることを確認した
