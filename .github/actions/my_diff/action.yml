@@ -7,7 +7,7 @@ inputs:
 outputs:
   diff:
     description: bbb
-    value: ${{ steps.hagehage.outputs.diff }}
+    value: ${{ steps.hogehoge.outputs.diff }}
 
 runs:
   using: composite
@@ -20,7 +20,6 @@ runs:
     - name: yyyy
       run: echo ${{ steps.hogehoge.outputs.diff }}
       shell: bash
-    - name: xxx
-      id: hagehage
-      run: echo "::set-output name=diff::${{ steps.hogehoge.outputs.diff }}"
+    - name: xxxx
+      run: echo ${{ inputs.dir }}
       shell: bash

@@ -1,3 +1,3 @@
 pub fn g() {
-    println!("yay!!!!!!!")
+    println!("yay!!!!!!!!")
 }
