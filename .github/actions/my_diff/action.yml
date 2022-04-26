@@ -19,6 +19,7 @@ runs:
           ${{ inputs.dir }}/**/*
     - name: yyyy
       run: echo ${{ steps.hogehoge.outputs.diff }}
+      shell: bash
     - name: xxx
       id: hagehage
       run: echo "::set-output name=diff::${{ steps.hogehoge.outputs.diff }}"
