@@ -23,8 +23,10 @@ jobs:
         if: ${{ steps.space_a.outputs.diff == false }}
         run: echo space_aに差分なし
 
-      - uses: ../actions/my_diff
+      - uses: uses: ./.github/actions/my_diff
         id: hoge
+        with:
+          dir: step-a
 
       - name: test
         if: ${{ steps.hoge.outputs.diff }}
