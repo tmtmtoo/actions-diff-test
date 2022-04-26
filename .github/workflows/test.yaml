@@ -24,10 +24,10 @@ jobs:
         run: echo space_aに差分なし
 
       - uses: ./.github/actions/my_diff
-        id: hoge
+        id: foobar
         with:
           dir: space_a
 
       - name: test
-        if: ${{ steps.hoge.outputs.diff }}
-        run: echo ${{ steps.hoge.outputs.diff }}
+        if: ${{ steps.foobar.outputs.diff }}
+        run: echo ${{ steps.foobar.outputs.diff }}

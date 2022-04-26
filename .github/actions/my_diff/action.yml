@@ -17,9 +17,3 @@ runs:
       with:
         PATTERNS: |
           ${{ inputs.dir }}/**/*
-    - name: yyyy
-      run: echo ${{ steps.hogehoge.outputs.diff }}
-      shell: bash
-    - name: xxxx
-      run: echo ${{ inputs.dir }}
-      shell: bash
