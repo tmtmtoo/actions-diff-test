@@ -26,7 +26,7 @@ jobs:
       - uses: ./.github/actions/my_diff
         id: hoge
         with:
-          dir: step-a
+          dir: space_a
 
       - name: test
         if: ${{ steps.hoge.outputs.diff }}
