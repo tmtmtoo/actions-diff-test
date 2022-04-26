@@ -15,5 +15,5 @@ runs:
     - uses: technote-space/get-diff-action@v5
       id: hogehoge
       with:
-      PATTERNS: |
-        ${{ inputs.dir }}/**/*
+        PATTERNS: |
+          ${{ inputs.dir }}/**/*
