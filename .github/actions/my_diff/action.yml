@@ -1,0 +1,19 @@
+name: hoge
+description: foobar
+inputs:
+  dir:
+    description: baz
+    required: true
+outputs:
+  diff:
+    description: bbb
+    value: ${{ steps.hogehoge.outputs.diff }}
+
+runs:
+  usging: composite
+  steps:
+    - uses: technote-space/get-diff-action@v5
+      id: hogehoge
+      with:
+      PATTERNS: |
+        ${{ inputs.dir }}/**/*

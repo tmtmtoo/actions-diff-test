@@ -22,3 +22,10 @@ jobs:
       - name: 差分がなかった場合に実行する step
         if: ${{ steps.space_a.outputs.diff == false }}
         run: echo space_aに差分なし
+
+      - uses: ../actions/my_diff
+        id: hoge
+
+      - name: test
+        if: ${{ steps.hoge.outputs.diff }}
+        run: echo ${{ steps.hoge.outputs.diff }}
