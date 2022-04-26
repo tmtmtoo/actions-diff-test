@@ -7,7 +7,7 @@ inputs:
 outputs:
   diff:
     description: bbb
-    value: ${{ steps.hogehoge.outputs.diff }}
+    value: ${{ steps.hagehage.outputs.diff }}
 
 runs:
   using: composite
@@ -17,3 +17,7 @@ runs:
       with:
         PATTERNS: |
           ${{ inputs.dir }}/**/*
+    - name: xxx
+      id: hagehage
+      run: echo "::set-output name=diff::${{ steps.hogehoge.outputs.diff }}"
+      run: echo "::set-output name=diff::$(echo $RANDOM)"
