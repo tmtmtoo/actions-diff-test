@@ -10,7 +10,7 @@ outputs:
     value: ${{ steps.hogehoge.outputs.diff }}
 
 runs:
-  usging: composite
+  using: composite
   steps:
     - uses: technote-space/get-diff-action@v5
       id: hogehoge
